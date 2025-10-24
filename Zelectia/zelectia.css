@@ -1,0 +1,653 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+html, body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: #000;
+}
+
+
+
+body{
+    font-family: Poppins;
+    background-color: #000;
+    color: #eee;
+    margin: 0;
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+    color: #eee;
+    
+}
+
+header{
+    width: 1140px;
+    max-width: 80%;
+    margin: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
+
+header a {
+    margin-right: 40px; /*Espacio entre los a*/
+
+}
+
+/*Carrusel*/
+
+.carrusel {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;  /*ocultar el contenido que se desborda del tamaño definido del contenedor */
+    margin-top: -50px;
+    position: relative;
+}
+
+.carrusel .list .item{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+}
+
+.carrusel .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carrusel .list .item .content{
+    position: absolute;
+    top: 20%;
+    width: 1140px;
+    max-width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-right: 30%;
+    box-sizing: border-box;
+    color: #fff;
+    text-shadow: 0 5px 10px #000400;
+}
+
+.carrusel .list .item .content .author{
+    font-weight: bold;
+    letter-spacing: 10px;
+}
+
+.carrusel .list .item .content .title,
+.carrusel .list .item .content .topic{
+    font-weight: bold;
+    font-size: 3.8em;
+    list-style: 1.3em;
+}
+
+.carrusel .list .item .content .topic{
+    color: #16295e;
+}
+
+.carrusel .list .item .content .buttons{
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.carrusel .list .item .content button{
+    border: none;
+    background-color: #eee;
+    letter-spacing: 3px;
+    font-family: Poppins;
+    font-weight: 500;
+}
+
+.button {
+  border: none;
+  background-color: #ffffff;
+  letter-spacing: 3px;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  text-align: center;  /* Centra el texto horizontalmente */
+  padding: 10px 20px;  /* Espaciado interno */
+  cursor: pointer;     /* Mano al pasar */
+}
+
+.carrusel .list .item .content .button:nth-child(1){
+    background-color: transparent;
+    color: #eee;
+    border: 1px solid #eee;
+}
+
+
+.carrusel .list .item .content button:nth-child(2){
+    background-color: transparent;
+    color: #eee;
+    border: 1px solid #eee;
+}
+
+/* thumbnail*/
+
+.thumbnail{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: max-content;
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+}
+
+.thumbnail .item{
+    width: 125px;
+    height: 190px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.thumbnail .item .content{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+
+.thumbnail .item .content .title{
+    font-weight: bold;
+}
+
+/* arrows */
+
+.arrows{
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    width: 375px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.arrows button {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #eee4;
+    border: none;
+    font-family: monospace;
+    color: #fff;
+    font-weight: bold;
+    font-size: large;
+    transition: .5s;
+    z-index: 100;
+}
+
+.arrows button:hover{
+    background-color: #eee;
+    color: #555;
+}
+
+.carrusel .list .item:nth-child(1){
+    z-index: 1;
+}
+
+.carrusel .list .item:nth-child(1) .author,
+.carrusel .list .item:nth-child(1) .title,
+.carrusel .list .item:nth-child(1) .topic,
+.carrusel .list .item:nth-child(1) .des,
+.carrusel .list .item:nth-child(1) .buttons{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent 0.3s 1s linear 1 forwards;
+}
+
+.thumbnail .item.active {
+    
+    border-radius: 10%;
+    opacity: 1;
+}
+
+
+@keyframes showContent{
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+.carrusel .list .item:nth-child(1) .title{
+    animation-delay: 1.2s;
+}
+
+.carrusel .list .item:nth-child(1) .topic{
+    animation-delay: 1.4s;
+}
+
+.carrusel .list .item:nth-child(1) .des{
+    animation-delay: 1.6s;
+}
+
+.carrusel .list .item:nth-child(1) .buttons{
+    animation-delay: 1.8s;
+}
+
+.carrusel.next .list .item:nth-child(1) img{
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    border-radius: 20px;
+    animation: showImage 0.5s linear 1 forwards;
+}
+
+@keyframes showImage {
+    to {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        bottom: 0;
+        border-radius: 0;
+    }
+}
+
+.carrusel.next .thumbnail .item:nth-last-child(1){
+    width: 0;
+    overflow: hidden;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+
+@keyframes showThumbnail{
+    to {
+        width: 150px;
+    }
+}
+
+.carrusel.next .thumbnail{
+    transform: translate(150px);
+    animation: transformThumbnail .5s linear 1 forwards;
+}
+
+@keyframes transformThumbnail{
+    to {
+        transform: translateX(0);
+    }
+}
+
+.carrusel.prev .list .item:nth-child(2){
+    z-index: 2;
+} 
+
+.carrusel.prev .list .item:nth-child(2) img{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: outImage 0.5s linear 1 forwards;
+}
+
+@keyframes outImage{
+    to {
+        width: 150px;
+        height: 220px;
+        border-radius: 20px;
+        left: 50%;
+        bottom: 50px;
+    }
+}
+
+.carrusel.prev .thumbnail .item:nth-child(1){
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    animation: showThumbnail 0.5s linear 1 forwards;
+}
+
+
+.carrusel.prev .list .item:nth-child(2) .author,
+.carrusel.prev .list .item:nth-child(2) title,
+.carrusel.prev .list .item:nth-child(2) .topic,
+.carrusel.prev .list .item:nth-child(2) .des,
+.carrusel.prev .list .item:nth-child(2) .buttons{
+    animation: contentOut 1.5s linear 1 forwards;
+}
+
+@keyframes contentOut{
+    to{
+        transform: translateY(-150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+.carrusel.next .arrows button,
+.carrusel.prev .arrows button{
+    pointer-events: none;
+}
+
+.time{
+    width: 100%;
+    height: 3px;
+    background-color: #f1683a;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+}
+
+.carrusel.next .time,
+.carrusel.prev .time{
+    width: 100%;
+    animation: timeRunning 2s linear 1 forwards;
+}
+
+@keyframes timeRunning{
+    to{
+        width: 0;
+    }
+}
+
+@media screen and (max-width: 678px) {
+    .carrusel .list .item .content {
+        padding-right: 0;
+    }
+    .carrusel .list .item .content .title {
+        font-size: 30px;
+    }
+}
+
+.bienvenida {
+    padding: 100px 0;
+    background-image: url('fondo2.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+ }
+
+.text-bienvenida{
+    background-color: rgba(0, 0, 0, 0.6); /* negro con opacidad */
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 900px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.sub1{
+    font-size: 50px;
+}
+
+.sub2{
+    font-size: 20px;
+}
+
+ .parrafo1{
+    font-size: 20px;
+    text-align: center;
+ }
+
+.parrafo2 {
+    font-size: 15px;
+    max-width: 900px;  /* controla el largo del párrafo */
+    margin: 0 auto;    /* centra horizontalmente */
+    text-align: justify; /* ajusta para que quede uniforme */
+    line-height: 1.6;   /* espacio entre líneas */
+}
+
+/* /////////////// Sección servicios ppal ///////////// */
+
+.promo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.promo-card {
+  position: relative;
+  height: 500px;
+  border-radius: 0;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* texto en blanco para contraste */
+}
+
+.promo-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4); /* opcional: fondo oscuro translúcido detrás del texto */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.promo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.promo-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.promo-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.promo-content p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.cta-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.promo-image {
+  flex: 1; /* ocupa todo el espacio disponible */
+  background-size: cover;      /* rellena sin deformar */
+  background-position: center; /* centrada */
+  background-repeat: no-repeat;
+}
+
+/* ====================== */
+/* MEJORAS VISTA MÓVIL */
+/* ====================== */
+
+/* --- Menú header --- */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  header a {
+    margin: 5px 10px;
+    font-size: 14px;
+  }
+}
+
+/* ==== Ajustes responsive mejorados ==== */
+@media (max-width: 768px) {
+
+  /* Ocultar thumbnails */
+  .thumbnail {
+    display: none !important;
+  }
+
+  /* Carrusel adaptado */
+  .carrusel {
+    height: 90vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carrusel .list .item .content {
+    width: 90%;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 20px 10px;
+    position: absolute;
+  }
+
+  .carrusel .list .item .content .title,
+  .carrusel .list .item .content .topic {
+    font-size: 1.8em;
+    line-height: 1.2em;
+    margin-bottom: 15px;
+  }
+
+  .carrusel .list .item .content .des {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 15px;
+  }
+
+  /* Centrar el botón */
+  .carrusel .list .item .content .buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  /* Arrows visibles y centradas abajo */
+  .arrows {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    z-index: 10;
+  }
+
+  .arrows button {
+    width: 65px;
+    height: 65px;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border: none;
+    color: white;
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+
+  .arrows button:hover {
+    background-color: rgba(255, 255, 255, 0.45);
+  }
+}
+
+
+
+/* --- Cuadrícula de servicios (promo-grid) --- */
+@media (max-width: 768px) {
+  .promo-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin: 30px auto;
+  }
+
+  .promo-card {
+    height: 350px;
+  }
+
+  .promo-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .promo-content p {
+    font-size: 0.95rem;
+  }
+}
+
+/* --- Textos de bienvenida --- */
+@media (max-width: 768px) {
+  .text-bienvenida {
+    max-width: 90%;
+    padding: 15px;
+    margin: 20px auto;
+  }
+
+  .sub1 {
+    font-size: 30px;
+  }
+
+  .sub2 {
+    font-size: 16px;
+  }
+
+  .parrafo1, .parrafo2 {
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 0 10px;
+  }
+}
+
+/* --- Vista muy pequeña (480px o menos) --- */
+@media (max-width: 480px) {
+  .carrusel .list .item .content .title,
+  .carrusel .list .item .content .topic {
+    font-size: 1.4em;
+  }
+
+  .button {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .promo-card {
+    height: 280px;
+  }
+
+  .promo-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .promo-content p {
+    font-size: 0.85rem;
+  }
+}

@@ -5,43 +5,171 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anthonny Florez</title>
     <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
 </head>
 
 <body>
 
     <header class="header">
-        <a href="#" class="logo"> AnthonnyFlorez </a>
+        <a href="#" class="logo"> Bienvenidos </a>
+
+        <i class='bx bx-menu' id="menu-icon"></i>
 
         <nav class="navbar">
             
-            <a href="#" class="active">Inicio</a>
-            <a href="#">Sobre mi</a>
-            <a href="#">Servicios</a>
-            <a href="#">Portafolio</a>
-            <a href="#">Contacto</a>
+            <a href="#home" class="active">Inicio</a>
+            <a href="#about">Sobre mi</a>
+            <a href="#services">Servicios</a>
+            <a href="C:\Users\User\Desktop\Trabajos en VS Code\Portafolio\Zelectia\zelectia.html" target="_blank">Portafolio</a>
+            
 
         </nav>
 
     </header>
 
-    <section class="home">
+    <section class="home" id="home">
         <div class="home-content">
             <h1> Hola, soy AnthonnyFlorez</h1>
             <h3> Desarrollador de software</h3>
             <p> Transformando ideas en código </p>
             <div class="btn-box">
-                <a href="#"> Hire me</a>
-                <a href="#">Hablemos</a>
+                <a href="Zelectia/zelectia.html">Portafolio</a>
+                <a href="https://wa.me/573205033935">Hablemos</a>
             </div>
         </div>
 
+      <div class="hexagon-container">
+        <div class="hexagon">
+              <img src="Generated Image October 22, 2025 - 5_48PM.png" alt="Anthonny Florez">
+        </div>
+      </div>
+
         <div class="home-sci">
-            <a href="#"> <i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"> </a>
-            <a href="#"> </a>
+            
+            <a href="https://github.com/TonyFlorez" target="_blank"><i class='bx bxl-github'></i></a>
+            <a href="https://www.linkedin.com/in/anthonny-florez/" target="_blank"><i class='bx bxl-linkedin'></i></a>
         </div>
 
+        <span class="home-imgHover"></span>
+
     </section>
+
+
+
+   <!-- Sobre mi  -->
+
+    <section class="about" id="about">
+    <h2>Sobre <span>Mi</span></h2>
+    
+    <div class="about-container">
+      <div class="about-img">
+        <video src="video-perfil.mp4" autoplay muted loop playsinline></video>
+      </div>
+      
+      <div class="about-text">
+        <h3>Desarrollador de Software</h3>
+        <p>
+          Soy un desarrollador de software con dos años de experiencia en proyectos de desarrollo web y automatización de procesos. 
+          Me apasiona diseñar e implementar soluciones innovadoras, escalables y orientadas a la eficiencia, integrando tecnologías 
+          como <b>Python, Selenium, N8N, JavaScript, CSS y MySQL.</b>
+          Soy una persona analítica, entusiasta y comprometida con la mejora continua, que disfruta mantenerse en constante aprendizaje 
+          para estar al día con las nuevas herramientas y tendencias del mundo tecnológico.
+          
+        </p>
+        <!-- <a href="#" class="btn">Read More</a> -->
+      </div>
+    </div>
+  </section>
+
+
+<section class="services" id="services">
+  <h2>Mis <span>Servicios</span></h2>
+
+  <div class="services-container">
+    <div class="service-box">
+      <h3> Automatizaciones</h3>
+      <p>
+        Desarrollo de flujos automáticos que optimizan procesos repetitivos, 
+        ahorrando tiempo y aumentando la productividad.
+      </p>
+    </div>
+
+    <div class="service-box">
+      <h3> Desarrollo Web</h3>
+      <p>
+        Creación de sitios y aplicaciones web modernas, escalables y seguras. 
+        
+      </p>
+    </div>
+
+    <div class="service-box">
+      <h3> Integración IA / Chatbots</h3>
+      <p>
+        Implementación de chatbots inteligentes e integración de modelos de 
+        inteligencia artificial para mejorar la atención al cliente y procesos internos.
+      </p>
+    </div>
+
+    <div class="service-box">
+      <h3> Marketing IA</h3>
+      <p>
+        Aplicación de herramientas de inteligencia artificial para crear 
+        estrategias de marketing digital personalizadas y efectivas.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section class="contact" id="contact">
+  <h2>Hablemos <span>Ahora</span></h2>
+  
+  <div class="contact-container">
+    <div class="contact-text">
+      <h3>¿Tienes un proyecto en mente?</h3>
+      <p>
+        Convirtamos tus ideas en soluciones digitales.  
+        Escríbeme y empecemos a trabajar juntos 🚀
+      </p>
+      <a href="https://wa.me/573205033935" target="_blank" class="whatsapp-btn">
+        <i class='bx bxl-whatsapp'></i> Hablemos
+      </a>
+    </div>
+
+    <!-- <div class="contact-img">
+      <div class="video-circle">
+    <video src="video-hablemos.mp4" autoplay muted loop playsinline></video>
+  </div>
+    </div> -->
+  </div>
+</section>
+
+
+<div id="chatbot-container">
+  <div id="chatbot-toggle">
+    <img src="perfil.png" alt="Chatbot" id="chatbot-avatar">
+  </div>
+
+  <div id="chatbox" class="hidden">
+    <div id="chat-header">
+      <h4>Asistente de Anthonny </h4>
+      <button id="close-chat">&times;</button>
+    </div>
+
+    <div id="chat-messages"></div>
+
+    <div id="chat-input">
+      <input type="text" id="user-input" placeholder="Escribe tu mensaje...">
+      <button id="send-btn"><i class='bx bx-send'></i></button>
+    </div>
+  </div>
+</div>
+
+<script src="chatbot.js"></script>
+
+
 
 
 </body>
